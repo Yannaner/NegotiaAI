@@ -3,22 +3,120 @@
 @tailwind utilities;
 
 :root {
-  --neon-shadow: 0 0 5px theme('colors.cyan.400'),
-                 0 0 20px theme('colors.cyan.400'),
-                 0 0 60px theme('colors.cyan.400');
+  --color-navy: #0A1931;
+  --color-gold: #C6A969;
+  --color-cream: #F5EFE7;
+  --color-charcoal: #2D2D2D;
 }
 
-.shadow-neon {
-  box-shadow: var(--neon-shadow);
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--color-navy);
+  color: var(--color-cream);
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.3px;
 }
 
-.shadow-neon-sm {
-  box-shadow: 0 0 2px theme('colors.cyan.400'),
-              0 0 10px theme('colors.cyan.400');
+/* Background patterns and effects */
+.bg-pattern {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.2) 2%, transparent 0%),
+    radial-gradient(circle at 75px 75px, rgba(255, 255, 255, 0.2) 2%, transparent 0%);
+  background-size: 100px 100px;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.shadow-neon-lg {
-  box-shadow: 0 0 10px theme('colors.cyan.400'),
-              0 0 30px theme('colors.cyan.400'),
-              0 0 90px theme('colors.cyan.400');
+.bg-luxury {
+  background: 
+    linear-gradient(45deg, rgba(198, 169, 105, 0.05) 0%, transparent 73%),
+    radial-gradient(circle at 50% 0%, rgba(198, 169, 105, 0.15) 0%, transparent 70%),
+    var(--color-navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-luxury::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-gold), transparent);
+}
+
+/* Card styles */
+.luxury-card {
+  @apply backdrop-blur-md;
+  background: rgba(10, 25, 49, 0.8);
+  border: 1px solid rgba(198, 169, 105, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Form elements */
+.luxury-input {
+  @apply bg-transparent border-b border-gold/30 px-4 py-2 text-cream placeholder-gold/50 focus:border-gold;
+  transition: all 0.3s ease;
+}
+
+.luxury-button {
+  @apply bg-gradient-to-r from-gold/90 to-gold hover:from-gold hover:to-gold/90;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Text effects */
+.gold-gradient-text {
+  @apply bg-gradient-to-r from-gold via-gold/80 to-gold bg-clip-text text-transparent;
+}
+
+/* Hover effects */
+.hover-effect {
+  @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+}
+
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px var(--color-gold);
+  transform: translateY(-2px);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .luxury-card {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  input, select {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hover-glow:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      0 0 20px var(--color-gold),
+      0 0 40px rgba(198, 169, 105, 0.2);
+  }
+}
+
+/* Particles container */
+#tsparticles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
