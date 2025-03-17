@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon-shadow: 0 0 5px theme('colors.cyan.400'),
+                 0 0 20px theme('colors.cyan.400'),
+                 0 0 60px theme('colors.cyan.400');
+}
+
+.shadow-neon {
+  box-shadow: var(--neon-shadow);
+}
+
+.shadow-neon-sm {
+  box-shadow: 0 0 2px theme('colors.cyan.400'),
+              0 0 10px theme('colors.cyan.400');
+}
+
+.shadow-neon-lg {
+  box-shadow: 0 0 10px theme('colors.cyan.400'),
+              0 0 30px theme('colors.cyan.400'),
+              0 0 90px theme('colors.cyan.400');
+}
