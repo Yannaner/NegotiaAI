@@ -115,10 +115,13 @@ const Dashboard = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <Typography className="text-center mb-2 text-gold text-sm tracking-[0.3em] uppercase">
-            Exclusive Luxury Vehicle Acquisition
+            Effortless Car Buying, Smart Savings
           </Typography>
           <Typography className="text-center mb-12 text-5xl md:text-6xl font-playfair">
-            Your <span className="gold-gradient-text">Prestige</span> Awaits
+             Your <span className="gold-gradient-text">NEW</span> Ride
+          </Typography>
+          <Typography className="text-center mb-8 text-gold text-sm tracking-[0.3em] max-w-2xl mx-auto">
+            We help you secure the best deals on your next vehicle without stress. Let our AI-powered negotiator do the bargaining for you, saving you time and money.
           </Typography>
 
           {!showSummary ? (
@@ -130,7 +133,7 @@ const Dashboard = () => {
               <Card className="w-full max-w-3xl mx-auto luxury-card">
                 <CardHeader className="p-6 m-4 border-b border-gold/20">
                   <Typography variant="h4" className="text-gold text-center font-playfair">
-                    Bespoke Vehicle Negotiation
+                    Enter Your Vehicle Information
                   </Typography>
                 </CardHeader>
 
@@ -191,7 +194,7 @@ const Dashboard = () => {
                         size="lg"
                         className="luxury-button w-full py-4 text-navy font-medium tracking-wider"
                       >
-                        Begin Exclusive Search
+                        Begin Vehicle Search
                       </Button>
                     </div>
                   </form>

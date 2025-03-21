@@ -2,12 +2,12 @@ import { Card, CardBody, CardHeader, Typography } from "@material-tailwind/react
 
 const CallStatus = () => {
   const dealerInfo = {
-    name: "Luxury Motors Beverly Hills",
-    contact: "James Anderson",
-    vehicle: "2023 Mercedes-Benz S-Class",
-    listPrice: "$125,000",
-    estimatedDiscount: "$8,000",
-    targetPrice: "$117,000",
+    name: "Harrisburg Auto Center",
+    contact: "Aiden",
+    vehicle: "2023 Ford Explorer",
+    listPrice: "$41,000",
+    estimatedDiscount: "$3,000",
+    targetPrice: "$38,000",
   };
 
   return (
@@ -28,7 +28,7 @@ const CallStatus = () => {
             <Typography className="text-gold">7 minutes</Typography>
             
             <Typography className="text-cream/60">Final Price:</Typography>
-            <Typography className="text-gold font-bold">$117,000</Typography>
+            <Typography className="text-gold font-bold">$38,200</Typography>
             
              <Typography className="text-cream/60">Savings:</Typography>
             <Typography className="text-gold">$8,000</Typography>
@@ -68,10 +68,9 @@ const CallStatus = () => {
               Negotiation Highlights:
             </Typography>
             <ul className="list-disc list-inside space-y-2 text-cream/80">
-              <li>Successfully negotiated extended warranty package</li>
-              <li>Included premium maintenance package for first year</li>
-              <li>Secured preferential financing rate at 2.9% APR</li>
-              <li>Added complementary ceramic coating treatment</li>
+              <li>Secured a final purchase price of $38,200, down from the original $41,000 listing</li>
+              <li>Dealer agreed to a same-day close with no trade-in or dealer financing</li>
+              <li>Included a complimentary full tank of gas and interior/exterior detailing</li>
             </ul>
           </div>
 
@@ -80,14 +79,7 @@ const CallStatus = () => {
               Car Status Description:
             </Typography>
             <Typography className="text-cream/80">
-              The negotiation resulted in securing the 2023 Mercedes-Benz S-Class
-              at the target price of $117,000, reflecting a savings of $8,000 from
-              the original list price. The vehicle is in excellent condition,
-              equipped with advanced technological features and luxurious amenities.
-              The agreement includes an extended warranty and a premium maintenance
-              package for the first year, ensuring peace of mind. Additionally, a
-              preferential financing rate was secured, along with a complementary
-              ceramic coating treatment to protect the vehicle's exterior.
+            The 2023 Ford Explorer is in excellent condition with low mileage and a clean vehicle history report. It features a spacious interior, advanced driver-assist technologies, and a strong V6 engine ideal for both family and utility use. The vehicle has been well-maintained, recently detailed, and remains under factory warranty. This model includes modern infotainment, safety features, and all-season tires, making it a reliable and versatile choice for daily driving or weekend trips.
             </Typography>
           </div>
 

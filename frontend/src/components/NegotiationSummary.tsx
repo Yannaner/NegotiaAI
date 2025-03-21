@@ -10,12 +10,12 @@ const NegotiationSummary = () => {
   const [callCompleted, setCallCompleted] = useState(false);
   const [callId, setCallId] = useState<string | null>(null);
   const dealerInfo = {
-    name: "Luxury Motors Beverly Hills",
-    contact: "James Anderson",
-    vehicle: "2023 Mercedes-Benz S-Class",
-    listPrice: "$125,000",
-    estimatedDiscount: "$8,000",
-    targetPrice: "$117,000",
+    name: "Harrisburg Auto Center",
+    contact: "Aiden",
+    vehicle: "2023 Ford Explorer",
+    listPrice: "$41,000",
+    estimatedDiscount: "$3,000",
+    targetPrice: "$38,000",
   };
 
   const handleInitiateCall = async () => {
@@ -27,7 +27,7 @@ const NegotiationSummary = () => {
       
       const result = await initiateRetellCall({
         fromNumber: '16292683092',
-        toNumber: '16509351525',
+        toNumber: '17172694977',
         agentId: 'agent_dcc21571d45271cc936d61e4e0',
         conversationFlowId: 'conversation_flow_fcfc128a6ad7',
       });
@@ -38,7 +38,7 @@ const NegotiationSummary = () => {
       // For demo purposes, show call status after a short delay
       setTimeout(() => {
         setCallCompleted(true);
-      }, 5000);
+      }, 100000);
       
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Failed to initiate call';

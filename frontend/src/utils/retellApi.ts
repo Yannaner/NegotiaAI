@@ -1,12 +1,4 @@
-import { Retell } from 'retell-sdk';
-
-const RETELL_API_KEY = import.meta.env.VITE_RETELL_API_KEY || '';
-
-// Initialize the Retell SDK
-const retellClient = new Retell({
-  apiKey: RETELL_API_KEY,
-});
-
+// Remove the Retell SDK import and initialization since we'll use the REST API directly
 interface RetellCallConfig {
   fromNumber: string;
   toNumber: string;
@@ -16,16 +8,10 @@ interface RetellCallConfig {
 
 export async function initiateRetellCall(config: RetellCallConfig) {
   try {
-    // Clean and format phone numbers - remove any non-digits and existing "+" prefix
+    // Clean and format phone numbers
     const cleanFromNumber = config.fromNumber.replace(/^\+|[^\d]/g, '');
     const cleanToNumber = config.toNumber.replace(/^\+|[^\d]/g, '');
     
-    console.log('Initiating call with:', {
-      fromNumber: `+${cleanFromNumber}`,
-      toNumber: `+${cleanToNumber}`,
-      agentId: config.agentId
-    });
-
     const response = await fetch('https://api.retellai.com/v2/create-phone-call', {
       method: 'POST',
       headers: {
@@ -36,20 +22,21 @@ export async function initiateRetellCall(config: RetellCallConfig) {
         from_number: `+${cleanFromNumber}`,
         to_number: `+${cleanToNumber}`,
         agent_id: config.agentId,
+        llm_model: 'gpt-4',
         conversation_flow_id: config.conversationFlowId
       }),
     });
 
-    const data = await response.json();
-    
     if (!response.ok) {
-      throw new Error(data.message || `API error: ${response.status}`);
+      const errorData = await response.json();
+      throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
     }
 
-    console.log('Call initiated successfully:', data);
+    const data = await response.json();
     return data;
+    
   } catch (error) {
-    console.error('Error details:', error);
+    console.error('Error initiating call:', error);
     throw error;
   }
 }
